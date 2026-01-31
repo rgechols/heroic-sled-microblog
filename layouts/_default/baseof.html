@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if not .IsHome }}{{ .Title }} — {{ end }}{{ .Site.Title }}</title>
+  {{ with .Site.Params.favicon }}<link rel="shortcut icon" href="{{ . }}" type="image/x-icon">{{ end }}
+  <link rel="stylesheet" href="/css/heroic-sled.css">
+  <link rel="alternate" href="{{ .Site.BaseURL }}feed.xml" type="application/rss+xml" title="{{ .Site.Title }}">
+  <link rel="alternate" href="{{ .Site.BaseURL }}feed.json" type="application/json" title="{{ .Site.Title }}">
+  <link rel="me" href="https://micro.blog/heroic_sled">
+  <link rel="authorization_endpoint" href="https://micro.blog/indieauth/auth">
+  <link rel="token_endpoint" href="https://micro.blog/indieauth/token">
+  <link rel="webmention" href="https://micro.blog/webmention">
+  <link rel="micropub" href="https://micro.blog/micropub">
+  <link rel="microsub" href="https://micro.blog/microsub">
+  <link rel="subscribe" href="https://micro.blog/users/follow">
+</head>
+<body>
+  {{ partial "header.html" . }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+</body>
+</html>
